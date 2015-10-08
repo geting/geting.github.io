@@ -4,7 +4,11 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://geting.github.io/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
+<<<<<<< HEAD
   <updated>2015-10-08T19:05:43+08:00</updated>
+=======
+  <updated>2015-10-08T18:09:02+08:00</updated>
+>>>>>>> 0449cb206307a751e5e1608a53a4e603caebf840
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -13,6 +17,7 @@
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
+<<<<<<< HEAD
   <entry>
     <title type="html"><![CDATA[springVersionConflict]]></title>
     <link href="http://geting.github.io/blog/2015/10/08/springversionconflict/"/>
@@ -22,4 +27,6 @@
 ]]></content>
   </entry>
   
+=======
+>>>>>>> 0449cb206307a751e5e1608a53a4e603caebf840
 </feed>
