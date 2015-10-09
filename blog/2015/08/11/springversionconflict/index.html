@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>springVersionConflict - My Octopress Blog</title>
+  <title>Spring 版本冲突 - My Octopress Blog</title>
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="NoSuchMethodError: org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefinitionAttributes ">
+  <meta name="description" content="NoSuchMethodError: org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefinitionAttributes 首先怀疑是spring 类冲突，操作步骤如下： &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">springVersionConflict</h1>
+      <h1 class="entry-title">Spring 版本冲突</h1>
     
     
       <p class="meta">
@@ -86,7 +86,60 @@
 
 <div class="entry-content"><p>NoSuchMethodError: org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefinitionAttributes</p>
 
-<p><img src="/User/baidu/baidu/code/octopress/source/spring/1.jpeg"></p>
+<!-- more -->
+
+
+<p><img src="/images/spring/1.jpeg"></p>
+
+<p>首先怀疑是spring 类冲突，操作步骤如下：</p>
+
+<ol>
+<li><p>在项目的target目录（也可以把war解压缩，在解压后的目录下）下查找spring的jar</p>
+
+<pre><code class="` bash">  ​find . -name "*spring*"
+</code></pre>
+
+<p> 结果如下，发现有一2.0.7版本的spring，和别的3.0.5的都不一样</p>
+
+<p> <img src="/images/spring/2.jpeg"></p></li>
+<li><p>使用mvn dependency:tree找到具体哪个dependency引用的这个版本的spring</p></li>
+<li><p>使用exclusions在pom.xml中排除对spring的引用</p>
+
+<pre><code class="` xml pom.xml"> &lt;dependency&gt;
+     &lt;groupId&gt;com*********&lt;/groupId&gt;
+     &lt;artifactId&gt;*****&lt;/artifactId&gt;
+     &lt;version&gt;1.2.5&lt;/version&gt;
+     &lt;exclusions&gt;
+         &lt;exclusion&gt;
+             &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+             &lt;artifactId&gt;spring&lt;/artifactId&gt;
+         &lt;/exclusion&gt;
+         &lt;exclusion&gt;
+             &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+         &lt;/exclusion&gt;
+         &lt;exclusion&gt;
+             &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+         &lt;/exclusion&gt;
+     &lt;/exclusions&gt;
+ &lt;/dependency&gt;
+</code></pre></li>
+<li>重新生成部署，问题消失。</li>
+</ol>
+
+
+<p>问题原因</p>
+
+<p>​找到spring-beans-3.0.5.RELEASE.jar和spring-2.0.7.jar.用反编译工具分别找到BeanDefinitionParserDelegate的定义。发现在3.0.5版本中有parseBeanDefinitionAttributes方法而2.0.7中没有。</p>
+
+<p><img src="/images/spring/3.jpeg" width="3"></p>
+
+<p><img src="/images/spring/4.jpeg" width="2"></p>
+
+<p>其它有用工具：</p>
+
+<p>pmap &lt;进程号>  找出Java进程加载的jar 包。</p>
 </div>
 
 
@@ -104,6 +157,12 @@
 
 <time class='entry-date' datetime='2015-08-11T19:00:24+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:00 pm</span></time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>java</a>
+  
+</span>
 
 
     </p>
@@ -133,7 +192,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/08/11/springversionconflict/">springVersionConflict</a>
+        <a href="/blog/2015/08/11/springversionconflict/">Spring 版本冲突</a>
       </li>
     
   </ul>

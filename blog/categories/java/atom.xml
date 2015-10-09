@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://geting.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Java | My Octopress Blog]]></title>
+  <link href="http://geting.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
   <updated>2015-10-09T11:16:52+08:00</updated>
   <id>http://geting.github.io/</id>
@@ -23,7 +23,7 @@
 <!-- more -->
 
 
-<p><img src="http://geting.github.io/images/spring/1.jpeg"></p>
+<p><img src="/images/spring/1.jpeg"></p>
 
 <p>首先怀疑是spring 类冲突，操作步骤如下：</p>
 
@@ -35,7 +35,7 @@
 
 <p> 结果如下，发现有一2.0.7版本的spring，和别的3.0.5的都不一样</p>
 
-<p> <img src="http://geting.github.io/images/spring/2.jpeg"></p></li>
+<p> <img src="/images/spring/2.jpeg"></p></li>
 <li><p>使用mvn dependency:tree找到具体哪个dependency引用的这个版本的spring</p></li>
 <li><p>使用exclusions在pom.xml中排除对spring的引用</p>
 
@@ -67,9 +67,9 @@
 
 <p>​找到spring-beans-3.0.5.RELEASE.jar和spring-2.0.7.jar.用反编译工具分别找到BeanDefinitionParserDelegate的定义。发现在3.0.5版本中有parseBeanDefinitionAttributes方法而2.0.7中没有。</p>
 
-<p><img src="http://geting.github.io/images/spring/3.jpeg" width="3"></p>
+<p><img src="/images/spring/3.jpeg" width="3"></p>
 
-<p><img src="http://geting.github.io/images/spring/4.jpeg" width="2"></p>
+<p><img src="/images/spring/4.jpeg" width="2"></p>
 
 <p>其它有用工具：</p>
 
