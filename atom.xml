@@ -4,7 +4,7 @@
   <title><![CDATA[Geting]]></title>
   <link href="http://geting.github.io/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
-  <updated>2015-10-09T13:27:01+08:00</updated>
+  <updated>2015-10-09T13:38:21+08:00</updated>
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Geting]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[旅行]]></title>
+    <link href="http://geting.github.io/blog/2015/10/09/lu-xing/"/>
+    <updated>2015-10-09T13:38:16+08:00</updated>
+    <id>http://geting.github.io/blog/2015/10/09/lu-xing</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Spring 版本冲突]]></title>
