@@ -5,15 +5,25 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>三亚 - Geting</title>
+  <title>如何在子项目中避免引用重复的node_modules - Geting</title>
   <meta name="author" content="Geting">
 
   
-  <meta name="description" content="19:30提议，
-19：37请假，
-21点买机票订酒店，
-23：12打包完成，
-凌晨5：00出门。 ">
+  <meta name="description" content="B项目是A项目的子项目，A项目使用npm安装了很多的模块，B项目中也需要这些模块，如何避免重复安装。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+B
+├── node_modules
+│ ├── A
+│ │ ├── Gruntfile.js
+│ │ ├── node_modules &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://geting.github.io/blog/2013/01/29/%5B%3F%5D-chang-shuo-zou-jiu-zou-de-lu-xing-san-ya/">
+  <link rel="canonical" href="http://geting.github.io/blog/2015/10/09/ru-he-zai-zi-xiang-mu-zhong-bi-mian-yin-yong-zhong-fu-de-node-modules/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Geting" type="application/atom+xml">
@@ -70,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">三亚</h1>
+      <h1 class="entry-title">如何在子项目中避免引用重复的node_modules</h1>
     
     
       <p class="meta">
@@ -79,27 +89,67 @@
 
 
 
-<time class='entry-date' datetime='2013-01-29T13:17:11+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:17 pm</span></time>
+<time class='entry-date' datetime='2015-10-09T17:42:55+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:42 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>19:30提议，
-19：37请假，
-21点买机票订酒店，
-23：12打包完成，
-凌晨5：00出门。</p>
+<div class="entry-content"><p>B项目是A项目的子项目，A项目使用npm安装了很多的模块，B项目中也需要这些模块，如何避免重复安装。</p>
 
 <!-- more -->
 
 
-<p><img src="/images/sanya/1.jpeg" title="'凌晨5点，北京的雾霾天，能见度不过10米'" ></p>
 
-<p><img src="/images/sanya/2.jpeg" title="'三亚的蓝天白云'" ></p>
 
-<p><img src="/images/sanya/3.png" title="'PM2.5指数对比'" ></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>B
+</span><span class='line'>├── node_modules
+</span><span class='line'>│   ├── A
+</span><span class='line'>│   │   ├── Gruntfile.js
+</span><span class='line'>│   │   ├── node_modules
+</span><span class='line'>│   │   │   └── Z
+</span><span class='line'>│   │   └── package.json (has depencencies X,Y,Z)
+</span><span class='line'>│   ├── X
+</span><span class='line'>│   └── Y
+</span><span class='line'>└── package.json (has dependencies A,X,Y)</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><p>方法一</p>
+
+<pre><code class="` javascript"> module.exports = function (grunt) {
+     grunt.file.expand('../node_modules/grunt-*/tasks').forEach(grunt.loadTasks);
+ }
+</code></pre></li>
+<li><p>方法二， 这种方法是通过改变了grunt的当前路径实现的，比较tricky,不推荐</p>
+
+<pre><code class="javascript">module.exports = function (grunt) {
+     var cwd = process.cwd();
+     process.chdir(cwd+'/../');
+     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+     process.chdir(cwd);
+ }
+</code></pre></li>
+<li><p>参考</p>
+
+<p> 1) <a href="http://stackoverflow.com/questions/15225865/centralise-node-modules-in-project-with-subproject">http://stackoverflow.com/questions/15225865/centralise-node-modules-in-project-with-subproject</a></p>
+
+<p> 2) <a href="https://www.npmjs.com/package/load-grunt-parent-tasks">https://www.npmjs.com/package/load-grunt-parent-tasks</a></p>
+
+<p> 3) <a href="https://github.com/gruntjs/grunt/issues/696">https://github.com/gruntjs/grunt/issues/696</a></p></li>
+</ol>
+
 </div>
 
 
@@ -115,12 +165,12 @@
 
 
 
-<time class='entry-date' datetime='2013-01-29T13:17:11+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:17 pm</span></time>
+<time class='entry-date' datetime='2015-10-09T17:42:55+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:42 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/lu-xing/'>旅行</a>
+    <a class='category' href='/blog/categories/other/'>other</a>
   
 </span>
 
@@ -129,7 +179,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://geting.github.io/blog/2013/01/29/%5B%3F%5D-chang-shuo-zou-jiu-zou-de-lu-xing-san-ya/" data-via="geting" data-counturl="http://geting.github.io/blog/2013/01/29/%5B%3F%5D-chang-shuo-zou-jiu-zou-de-lu-xing-san-ya/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://geting.github.io/blog/2015/10/09/ru-he-zai-zi-xiang-mu-zhong-bi-mian-yin-yong-zhong-fu-de-node-modules/" data-via="geting" data-counturl="http://geting.github.io/blog/2015/10/09/ru-he-zai-zi-xiang-mu-zhong-bi-mian-yin-yong-zhong-fu-de-node-modules/" >Tweet</a>
   
   
   
@@ -140,8 +190,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2015/08/11/springversionconflict/" title="Previous Post: Spring 版本冲突">&laquo; Spring 版本冲突</a>
       
-        <a class="basic-alignment right" href="/blog/2015/08/11/springversionconflict/" title="Next Post: Spring 版本冲突">Spring 版本冲突 &raquo;</a>
       
     </p>
   </footer>

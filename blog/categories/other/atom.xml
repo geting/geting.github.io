@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Other | Geting]]></title>
+  <link href="http://geting.github.io/blog/categories/other/atom.xml" rel="self"/>
+  <link href="http://geting.github.io/"/>
+  <updated>2015-10-09T18:01:41+08:00</updated>
+  <id>http://geting.github.io/</id>
+  <author>
+    <name><![CDATA[Geting]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如何在子项目中避免引用重复的node_modules]]></title>
+    <link href="http://geting.github.io/blog/2015/10/09/ru-he-zai-zi-xiang-mu-zhong-bi-mian-yin-yong-zhong-fu-de-node-modules/"/>
+    <updated>2015-10-09T17:42:55+08:00</updated>
+    <id>http://geting.github.io/blog/2015/10/09/ru-he-zai-zi-xiang-mu-zhong-bi-mian-yin-yong-zhong-fu-de-node-modules</id>
+    <content type="html"><![CDATA[<p>B项目是A项目的子项目，A项目使用npm安装了很多的模块，B项目中也需要这些模块，如何避免重复安装。</p>
+
+<!-- more -->
+
+
+<pre><code class="">B
+├── node_modules
+│   ├── A
+│   │   ├── Gruntfile.js
+│   │   ├── node_modules
+│   │   │   └── Z
+│   │   └── package.json (has depencencies X,Y,Z)
+│   ├── X
+│   └── Y
+└── package.json (has dependencies A,X,Y)
+</code></pre>
+
+<ol>
+<li><p>方法一</p>
+
+<pre><code class="` javascript"> module.exports = function (grunt) {
+     grunt.file.expand('../node_modules/grunt-*/tasks').forEach(grunt.loadTasks);
+ }
+</code></pre></li>
+<li><p>方法二， 这种方法是通过改变了grunt的当前路径实现的，比较tricky,不推荐</p>
+
+<pre><code class="javascript">module.exports = function (grunt) {
+     var cwd = process.cwd();
+     process.chdir(cwd+'/../');
+     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+     process.chdir(cwd);
+ }
+</code></pre></li>
+<li><p>参考</p>
+
+<p> 1) <a href="http://stackoverflow.com/questions/15225865/centralise-node-modules-in-project-with-subproject">http://stackoverflow.com/questions/15225865/centralise-node-modules-in-project-with-subproject</a></p>
+
+<p> 2) <a href="https://www.npmjs.com/package/load-grunt-parent-tasks">https://www.npmjs.com/package/load-grunt-parent-tasks</a></p>
+
+<p> 3) <a href="https://github.com/gruntjs/grunt/issues/696">https://github.com/gruntjs/grunt/issues/696</a></p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
