@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://geting.github.io/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
-  <updated>2015-10-09T11:16:52+08:00</updated>
+  <updated>2015-10-09T11:19:32+08:00</updated>
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -67,9 +67,9 @@
 
 <p>​找到spring-beans-3.0.5.RELEASE.jar和spring-2.0.7.jar.用反编译工具分别找到BeanDefinitionParserDelegate的定义。发现在3.0.5版本中有parseBeanDefinitionAttributes方法而2.0.7中没有。</p>
 
-<p><img src="http://geting.github.io/images/spring/3.jpeg" width="3"></p>
+<p><img src="http://geting.github.io/images/spring/3.jpeg" title="'3.0.5'" ></p>
 
-<p><img src="http://geting.github.io/images/spring/4.jpeg" width="2"></p>
+<p><img src="http://geting.github.io/images/spring/4.jpeg" title="'2.0.7'" ></p>
 
 <p>其它有用工具：</p>
 
