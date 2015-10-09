@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://geting.github.io/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
-  <updated>2015-10-09T10:13:46+08:00</updated>
+  <updated>2015-10-09T10:22:33+08:00</updated>
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -20,7 +20,7 @@
     <id>http://geting.github.io/blog/2015/08/11/springversionconflict</id>
     <content type="html"><![CDATA[<p>NoSuchMethodError: org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefinitionAttributes</p>
 
-<p><img src="http://geting.github.io/User/baidu/Downloads/1.jpeg"></p>
+<p><img src="http://geting.github.io/User/baidu/baidu/code/octopress/source/spring/1.jpeg"></p>
 ]]></content>
   </entry>
   
