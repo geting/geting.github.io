@@ -100,24 +100,23 @@
 </code></pre></li>
 <li><p>DataFrame的一些简单用法</p>
 
-<p> ``` scala
- // 输出表结构
-df.printSchema()</p></li>
+<pre><code class="` scala"> // 输出表结构
+ df.printSchema()
+
+ // 选择所有年龄大于21岁的人，只保留name字段
+ df.filter(df("age") &gt; 21).select("name").show()
+
+ // 选择name，并把age字段自增
+ df.select("name", df("age") + 1).show()
+
+ // 按年龄分组计数
+ df.groupBy("age").count().show()
+
+ // 左联表（注意是3个等号！）
+ df.join(df2, df("name") === df2("name"), "left").show()
+</code></pre></li>
 </ol>
 
-
-<p>// 选择所有年龄大于21岁的人，只保留name字段
-df.filter(df(&ldquo;age&rdquo;) > 21).select(&ldquo;name&rdquo;).show()</p>
-
-<p>// 选择name，并把age字段自增
-df.select(&ldquo;name&rdquo;, df(&ldquo;age&rdquo;) + 1).show()</p>
-
-<p>// 按年龄分组计数
-df.groupBy(&ldquo;age&rdquo;).count().show()</p>
-
-<p>// 左联表（注意是3个等号！）
-df.join(df2, df(&ldquo;name&rdquo;) === df2(&ldquo;name&rdquo;), &ldquo;left&rdquo;).show()
-    ```</p>
 </div>
   
   
