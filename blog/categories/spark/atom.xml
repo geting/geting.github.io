@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Spark | Geting]]></title>
   <link href="http://geting.github.io/blog/categories/spark/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
-  <updated>2016-01-29T15:31:05+08:00</updated>
+  <updated>2016-01-29T15:37:41+08:00</updated>
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Geting]]></name>
@@ -20,16 +20,16 @@
     <id>http://geting.github.io/blog/2016/01/29/connect-mysql-with-spark</id>
     <content type="html"><![CDATA[<ol>
 <li>设置SPARK_CLASSPATH,如：
-<code>bash
-export SPARK_CLASSPATH=/home/ting/software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar
+ <code>bash
+ export SPARK_CLASSPATH=/home/ting/software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar
 </code></li>
 <li>启动spark-shell
-<code>bash
-sh ./bin/spark-shell
+ <code>bash
+ sh ./bin/spark-shell
 </code></li>
 <li>把Mysql 表转化为DataFrame对象
-<code>scala
-val jdbcDF = sqlContext.load("jdbc", Map("url" -&gt; "jdbc:mysql://localhost:3306/your_database?user=your_user&amp;password=your_password", "dbtable" -&gt; "your_table"))
+ <code>scala
+ val jdbcDF = sqlContext.load("jdbc", Map("url" -&gt; "jdbc:mysql://localhost:3306/your_database?user=your_user&amp;password=your_password", "dbtable" -&gt; "your_table"))
 </code></li>
 </ol>
 
