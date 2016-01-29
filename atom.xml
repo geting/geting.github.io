@@ -4,7 +4,7 @@
   <title><![CDATA[Geting]]></title>
   <link href="http://geting.github.io/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
-  <updated>2016-01-29T15:37:41+08:00</updated>
+  <updated>2016-01-29T15:43:14+08:00</updated>
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Geting]]></name>
@@ -31,8 +31,25 @@
  <code>scala
  val jdbcDF = sqlContext.load("jdbc", Map("url" -&gt; "jdbc:mysql://localhost:3306/your_database?user=your_user&amp;password=your_password", "dbtable" -&gt; "your_table"))
 </code></li>
+<li>DataFrame的一些简单用法
+ ```
+ // 输出表结构
+df.printSchema()</li>
 </ol>
 
+
+<p>// 选择所有年龄大于21岁的人，只保留name字段
+df.filter(df(&ldquo;age&rdquo;) > 21).select(&ldquo;name&rdquo;).show()</p>
+
+<p>// 选择name，并把age字段自增
+df.select(&ldquo;name&rdquo;, df(&ldquo;age&rdquo;) + 1).show()</p>
+
+<p>// 按年龄分组计数
+df.groupBy(&ldquo;age&rdquo;).count().show()</p>
+
+<p>// 左联表（注意是3个等号！）
+df.join(df2, df(&ldquo;name&rdquo;) === df2(&ldquo;name&rdquo;), &ldquo;left&rdquo;).show()
+    ```</p>
 ]]></content>
   </entry>
   
