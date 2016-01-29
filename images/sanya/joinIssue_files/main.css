@@ -1,0 +1,529 @@
+@charset "UTF-8";
+/*清零*/
+/* line 5, ../../app/styles/header.scss */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 34, ../../app/styles/header.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 39, ../../app/styles/header.scss */
+fieldset,
+img {
+  border: 0;
+}
+
+/* line 44, ../../app/styles/header.scss */
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var,
+i {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* line 57, ../../app/styles/header.scss */
+ol,
+ul {
+  list-style: none;
+}
+
+/* line 62, ../../app/styles/header.scss */
+caption,
+th {
+  text-align: left;
+}
+
+/* line 67, ../../app/styles/header.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* line 77, ../../app/styles/header.scss */
+q:before,
+q:after {
+  content: '';
+}
+
+/* line 82, ../../app/styles/header.scss */
+a:focus {
+  outline-style: none;
+}
+
+/* line 86, ../../app/styles/header.scss */
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* line 92, ../../app/styles/header.scss */
+sup {
+  vertical-align: text-top;
+}
+
+/* line 96, ../../app/styles/header.scss */
+sub {
+  vertical-align: text-bottom;
+}
+
+/* line 100, ../../app/styles/header.scss */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  *font-size: 100%;
+  /*to enable resizing for IE*/
+}
+
+/* line 110, ../../app/styles/header.scss */
+textarea {
+  resize: none;
+}
+
+/* line 114, ../../app/styles/header.scss */
+body {
+  font: 12px/1.3 'Arial', 'Microsoft YaHei';
+  _font-family: simsun;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+/* line 121, ../../app/styles/header.scss */
+body {
+  font-family: 'Helvetica', 'STHeiti';
+  background: #fff;
+}
+
+/*::selection{background:#eb7350;color:#fff;}*/
+/* line 129, ../../app/styles/header.scss */
+:focus {
+  outline-color: #eb7350;
+}
+
+/* line 133, ../../app/styles/header.scss */
+.plr10 {
+  padding: 0 10px;
+}
+
+/* line 137, ../../app/styles/header.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 141, ../../app/styles/header.scss */
+.fl {
+  float: left;
+}
+
+/* line 145, ../../app/styles/header.scss */
+.fr {
+  float: right;
+}
+
+/* ************************************************************************************************ */
+/* ***************************************通用小样式************************************************ */
+/* ************************************************************************************************ */
+/* 小间距********************************************************** */
+/* line 161, ../../app/styles/header.scss */
+.mala-mr {
+  margin-right: 10px;
+}
+
+/* line 165, ../../app/styles/header.scss */
+.mala-ml {
+  margin-left: 10px;
+}
+
+/* 浮动方式********************************************************** */
+/* line 172, ../../app/styles/header.scss */
+.mala-fl {
+  float: left;
+}
+
+/* line 176, ../../app/styles/header.scss */
+.mala-fr {
+  float: right;
+}
+
+/* line 180, ../../app/styles/header.scss */
+.mala-clearfix:after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+}
+
+/* 上下小箭头********************************************************** */
+/* line 191, ../../app/styles/header.scss */
+.mala-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-right: 4px dashed transparent;
+  border-left: 4px dashed transparent;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* line 202, ../../app/styles/header.scss */
+.mala-arrow-up {
+  border-bottom: 4px solid #fff;
+}
+
+/* line 206, ../../app/styles/header.scss */
+.mala-arrow-up:hover {
+  border-bottom-color: #fff;
+}
+
+/* line 210, ../../app/styles/header.scss */
+.mala-arrow-down {
+  border-top: 4px solid #fff;
+}
+
+/* line 214, ../../app/styles/header.scss */
+.mala-arrow-down:hover {
+  border-top-color: #fff;
+}
+
+/* ************************************************************************************************ */
+/* ***************************************页面元素开始*********************************************** */
+/* ************************************************************************************************ */
+/* 页头********************************************* */
+/* line 230, ../../app/styles/header.scss */
+.mala-header {
+  height: 60px;
+  background-color: #3d85cc;
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.3), 0 0 6px 2px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/*.mala-header-fix {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}*/
+/* logo******************* */
+/* line 251, ../../app/styles/header.scss */
+.mala-logo {
+  display: block;
+  width: 256px;
+  height: 40px;
+  margin-top: 10px;
+  background: url(/images/logo.png) no-repeat center center;
+}
+
+/* line 259, ../../app/styles/header.scss */
+.mala-header-fix .mala-logo {
+  margin-left: 15px;
+}
+
+/* 用户信息******************* */
+/* line 266, ../../app/styles/header.scss */
+.mala-user-info {
+  margin-right: 15px;
+  position: relative;
+}
+
+/* line 271, ../../app/styles/header.scss */
+.mala-header-fix .mala-user-info {
+  margin-right: 15px;
+}
+
+/* line 275, ../../app/styles/header.scss */
+.mala-username {
+  display: inline-block;
+  padding: 10px 10px;
+  color: #ffffff;
+  line-height: 40px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+/* line 284, ../../app/styles/header.scss */
+.mala-username:hover {
+  color: #ffffff;
+}
+
+/* 用户头像******************* */
+/* line 291, ../../app/styles/header.scss */
+.mala-avatar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 10px;
+  background: url(/static/common/lib/img/photo.jpg) no-repeat;
+  background-size: cover;
+}
+
+/* line 302, ../../app/styles/header.scss */
+.mala-avatar img {
+  width: 40px;
+  height: 40px;
+}
+
+/* 主菜单******************* */
+/* line 310, ../../app/styles/header.scss */
+.mala-nav-list {
+  margin-right: 60px;
+}
+
+/* line 314, ../../app/styles/header.scss */
+.mala-nav-item {
+  position: relative;
+}
+
+/* line 318, ../../app/styles/header.scss */
+.mala-nav-link {
+  display: inline-block;
+  width: 120px;
+  padding: 10px 0;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+/* line 329, ../../app/styles/header.scss */
+.mala-nav-link:hover,
+.mala-nav-link.active {
+  background: #3674b3;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* 下拉菜单******************* */
+/* line 339, ../../app/styles/header.scss */
+.mala-header-dropdown-list {
+  position: absolute;
+  top: 60px;
+  z-index: 10;
+  text-align: center;
+  background: #ffffff;
+  width: 100%;
+  box-shadow: 0 0 4px #999;
+}
+
+/* line 349, ../../app/styles/header.scss */
+.mala-header-dropdown-list .mala-arrow {
+  position: absolute;
+  top: -6px;
+  right: 13px;
+  border-width: 6px;
+  border-top-color: #ffffff;
+}
+
+/* line 357, ../../app/styles/header.scss */
+.mala-header-dropdown-item .mala-link {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  color: #000;
+  font-size: 13px;
+}
+
+/* line 365, ../../app/styles/header.scss */
+.mala-header-dropdown-item .mala-link:hover {
+  text-decoration: none;
+  background: #63a8eb;
+  color: #fff;
+}
+
+/*侧边栏导航*/
+/* line 2, ../../app/styles/sidebar.scss */
+#sidebar {
+  margin-top: 60px;
+  background-color: #f2f2f2;
+  height: 120%;
+  padding: 0;
+  position: fixed;
+  _position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  z-index: 800;
+  color: #333;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  font-size: 14px;
+  border-right: 1px solid #eaeaea;
+}
+
+/*侧边栏导航*/
+/* line 21, ../../app/styles/sidebar.scss */
+.left-main-nav {
+  padding-left: 20px;
+  line-height: 45px;
+  margin-top: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* line 28, ../../app/styles/sidebar.scss */
+.left-nav-list {
+  margin: 0;
+  padding-top: 1px;
+}
+
+/* line 35, ../../app/styles/sidebar.scss */
+.left-nav-list li a {
+  color: #666;
+  display: inline-block;
+  line-height: 45px;
+  padding-left: 28px;
+  width: 100%;
+}
+
+/* line 44, ../../app/styles/sidebar.scss */
+.left-nav-list li:hover {
+  background: #63a8eb;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* line 50, ../../app/styles/sidebar.scss */
+.left-nav-list li.on {
+  background: #3d85cc;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* line 55, ../../app/styles/sidebar.scss */
+.left-nav-list li:hover a, .left-nav-list li.on a {
+  color: #fff;
+}
+
+/* line 58, ../../app/styles/sidebar.scss */
+.icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  vertical-align: -3px;
+  background: url(/images/nav-icon.png) no-repeat;
+}
+
+/* line 66, ../../app/styles/sidebar.scss */
+.icon1 {
+  background-position: 0 0;
+}
+
+/* line 69, ../../app/styles/sidebar.scss */
+.icon2 {
+  background-position: 0 -16px;
+}
+
+/* line 72, ../../app/styles/sidebar.scss */
+.icon3 {
+  background-position: 0 -33px;
+}
+
+/* line 75, ../../app/styles/sidebar.scss */
+.icon4 {
+  background-position: 0 -50px;
+}
+
+/* line 78, ../../app/styles/sidebar.scss */
+.left-nav-list li:hover .icon1, .left-nav-list li.on .icon1 {
+  background-position: -17px 0;
+}
+
+/* line 81, ../../app/styles/sidebar.scss */
+.left-nav-list li:hover .icon2, .left-nav-list li.on .icon2 {
+  background-position: -17px -16px;
+}
+
+/* line 84, ../../app/styles/sidebar.scss */
+.left-nav-list li:hover .icon3, .left-nav-list li.on .icon3 {
+  background-position: -17px -33px;
+}
+
+/* line 87, ../../app/styles/sidebar.scss */
+.left-nav-list li:hover .icon4, .left-nav-list li.on .icon4 {
+  background-position: -17px -50px;
+}
+
+/* line 9, ../../app/styles/main.scss */
+.fade-enter-setup,
+.fade-leave-setup {
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+
+/* line 14, ../../app/styles/main.scss */
+.fade-enter-setup,
+.fade-leave-setup.fade-leave-start {
+  opacity: 0;
+}
+
+/* line 19, ../../app/styles/main.scss */
+.fade-leave-setup,
+.fade-enter-setup.fade-enter-start {
+  opacity: 0;
+}
+
+/* line 24, ../../app/styles/main.scss */
+#wrapper #container {
+  margin-left: 220px;
+}
+
+/* line 29, ../../app/styles/main.scss */
+.footer {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  color: #666;
+  position: relative;
+  z-index: 5;
+}

@@ -4,7 +4,7 @@
   <title><![CDATA[Geting]]></title>
   <link href="http://geting.github.io/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
-  <updated>2015-10-09T18:01:41+08:00</updated>
+  <updated>2016-01-29T15:31:05+08:00</updated>
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Geting]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Connect Mysql With Spark]]></title>
+    <link href="http://geting.github.io/blog/2016/01/29/connect-mysql-with-spark/"/>
+    <updated>2016-01-29T15:12:15+08:00</updated>
+    <id>http://geting.github.io/blog/2016/01/29/connect-mysql-with-spark</id>
+    <content type="html"><![CDATA[<ol>
+<li>设置SPARK_CLASSPATH,如：</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">SPARK_CLASSPATH</span><span class="o">=</span>/home/ting/software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>启动spark-shell</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sh ./bin/spark-shell
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>把Mysql 表转化为DataFrame对象</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">val</span> <span class="n">jdbcDF</span> <span class="k">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">load</span><span class="o">(</span><span class="s">&quot;jdbc&quot;</span><span class="o">,</span> <span class="nc">Map</span><span class="o">(</span><span class="s">&quot;url&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;jdbc:mysql://localhost:3306/your_database?user=your_user&amp;password=your_password&quot;</span><span class="o">,</span> <span class="s">&quot;dbtable&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;your_table&quot;</span><span class="o">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[如何在子项目中避免引用重复的node_modules]]></title>
