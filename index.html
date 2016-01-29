@@ -9,7 +9,7 @@
   <meta name="author" content="Geting">
 
   
-  <meta name="description" content="设置SPARK_CLASSPATH,如： bash export SPARK_CLASSPATH=/home/ting/software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar 启动spark-shell &hellip;">
+  <meta name="description" content="设置SPARK_CLASSPATH,如： export SPARK_CLASSPATH=/home/ting/software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar 启动spark-shell sh ./ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,22 +86,23 @@
 
 
   <div class="entry-content"><ol>
-<li>设置SPARK_CLASSPATH,如：
- <code>bash
- export SPARK_CLASSPATH=/home/ting/software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar
-</code></li>
-<li>启动spark-shell
- <code>bash
- sh ./bin/spark-shell
-</code></li>
-<li>把Mysql 表转化为DataFrame对象
- <code>scala
- val jdbcDF = sqlContext.load("jdbc", Map("url" -&gt; "jdbc:mysql://localhost:3306/your_database?user=your_user&amp;password=your_password", "dbtable" -&gt; "your_table"))
-</code></li>
-<li>DataFrame的一些简单用法
- ```
+<li><p>设置SPARK_CLASSPATH,如：</p>
+
+<pre><code class="` bash"> export SPARK_CLASSPATH=/home/ting/software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar
+</code></pre></li>
+<li><p>启动spark-shell</p>
+
+<pre><code class="` bash"> sh ./bin/spark-shell
+</code></pre></li>
+<li><p>把Mysql 表转化为DataFrame对象</p>
+
+<pre><code class="` scala"> val jdbcDF = sqlContext.load("jdbc", Map("url" -&gt; "jdbc:mysql://localhost:3306/your_database?user=your_user&amp;password=your_password", "dbtable" -&gt; "your_table"))
+</code></pre></li>
+<li><p>DataFrame的一些简单用法</p>
+
+<p> ```
  // 输出表结构
-df.printSchema()</li>
+df.printSchema()</p></li>
 </ol>
 
 
