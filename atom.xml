@@ -4,7 +4,7 @@
   <title><![CDATA[Geting]]></title>
   <link href="http://geting.github.io/atom.xml" rel="self"/>
   <link href="http://geting.github.io/"/>
-  <updated>2016-01-29T15:48:48+08:00</updated>
+  <updated>2016-02-02T11:29:19+08:00</updated>
   <id>http://geting.github.io/</id>
   <author>
     <name><![CDATA[Geting]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android App 开发]]></title>
+    <link href="http://geting.github.io/blog/2016/02/02/android-app-kai-fa/"/>
+    <updated>2016-02-02T11:26:10+08:00</updated>
+    <id>http://geting.github.io/blog/2016/02/02/android-app-kai-fa</id>
+    <content type="html"><![CDATA[<ol>
+<li>怎么打开USB调试
+ 1）在Andriod 4.2版本之前
+     点击应用程序-》设置-》应用程序-》开发-》USB调试
+ 2）4.2版本之后
+     设置-》关于手机-》在版本号上点几下</li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Connect Mysql With Spark]]></title>
